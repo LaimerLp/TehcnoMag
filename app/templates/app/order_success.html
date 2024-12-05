@@ -1,0 +1,11 @@
+<!-- order_success.html -->
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Спасибо за ваш заказ!</h1>
+    <p>Ваш заказ успешно оформлен. Мы свяжемся с вами для подтверждения деталей доставки.</p>
+    <a href="{% url 'products' %}" class="btn btn-primary">Продолжить покупки</a>
+</div>
+{% endblock %}

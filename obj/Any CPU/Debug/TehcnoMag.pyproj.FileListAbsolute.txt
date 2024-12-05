@@ -1,0 +1,2 @@
+d:\Desktop\TechnoMag-master\obj\Any CPU\Debug\TehcnoMag.pyproj.CoreCompileInputs.cache
+C:\Users\Student\source\repos\TechnoMag-master\obj\Any CPU\Debug\TehcnoMag.pyproj.CoreCompileInputs.cache

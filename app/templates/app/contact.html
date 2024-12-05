@@ -1,0 +1,22 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<address>
+    Улица Майкрософт, 1<br />
+    Редмонд, Вашингтон 98052-6399<br />
+    <abbr title="Телефон">Т:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Поддержка:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Маркетинг:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
+
+<p>Если у вас есть вопросы или предложения, пожалуйста, свяжитесь с нами по указанным контактам. Мы всегда рады помочь вам с выбором и покупкой комплектующих для вашего компьютера или другой электроники.</p>
+
+{% endblock %}

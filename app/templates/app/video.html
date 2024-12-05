@@ -1,0 +1,26 @@
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Видео</h1>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h2>Сборка компьютера</h2>
+            <p>В этом видео показана пошаговая сборка компьютера, начиная с подключения компонентов и заканчивая запуском и настройкой системы.</p>
+            <video controls width="100%">
+                <source src="{% static 'app/content/video1.mp4' %}" type="video/mp4">
+                Ваш браузер не поддерживает тег video.
+            </video>
+        </div>
+        <div class="col-md-6 mb-4">
+            <h2>Входные и выходные порты на материнской плате игрового компьютера</h2>
+            <p>Это видео показывает, какие входные и выходные порты находятся на материнской плате игрового компьютера</p>
+            <video controls width="100%">
+                <source src="{% static 'app/content/video2.mp4' %}" type="video/mp4">
+                Ваш браузер не поддерживает тег video.
+            </video>
+        </div>
+    </div>
+</div>
+{% endblock %}

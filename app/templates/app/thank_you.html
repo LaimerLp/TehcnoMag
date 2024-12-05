@@ -1,0 +1,17 @@
+
+{% extends "app/layout.html" %} 
+ 
+{% block content %} 
+<div class="feedback-container"> 
+    <h2 class="thank-you-message">Спасибо за ваш отзыв!</h2> 
+    <ul class="feedback-list"> 
+        <li><strong class="feedback-label">Имя:</strong> <span class="feedback-value">{{ submitted_data.name }}</span></li> 
+        <li><strong class="feedback-label">Email:</strong> <span class="feedback-value">{{ submitted_data.email }}</span></li> 
+        <li><strong class="feedback-label">Оценка сайта:</strong> <span class="feedback-value">{{ submitted_data.rating }}</span></li> 
+        <li><strong class="feedback-label">Комментарии:</strong> <span class="feedback-value">{{ submitted_data.comments }}</span></li> 
+        <li><strong class="feedback-label">Подписаться на новости:</strong> <span class="feedback-value">{{ submitted_data.subscribe }}</span></li> 
+        <li><strong class="feedback-label">Предложения:</strong> <span class="feedback-value">{{ submitted_data.suggestions }}</span></li> 
+    </ul> 
+    <a href="{% url 'home' %}" class="btn btn-default">Вернуться на главную</a> 
+</div> 
+{% endblock %}

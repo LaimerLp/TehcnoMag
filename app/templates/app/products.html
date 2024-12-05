@@ -1,0 +1,24 @@
+<!-- products.html -->
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Товары</h1>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-5">
+            <div class="card product-card">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'app/content/no-image.png' %}{% endif %}" class="card-img-top product-image" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.price }} руб.</p>
+                    <a href="{% url 'product_detail' product.pk %}" class="btn btn-primary btn-sm">Узнать больше</a>
+                    <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success btn-sm">Добавить в корзину</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

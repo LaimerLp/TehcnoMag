@@ -1,0 +1,26 @@
+{% extends "app/layout.html" %}
+{% load static %}  <!-- Загрузка библиотеки static -->
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Блог</h1>
+    <div class="blog-feed">
+        {% for post in posts %}
+        <div class="blog-post mb-4 p-4 border rounded">
+            <h2 class="mb-4">{{ post.title }}</h2>
+            {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid mb-2 blog-image">
+            {% endif %}
+            <div class="ckeditor-content">
+                {{ post.summary|safe }}
+            </div>
+            <p><small class="text-muted">Опубликовано: {{ post.published_date }}</small></p>
+            <a href="{% url 'blog_detail' post.pk %}" class="btn btn-primary">Читать далее</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/ckeditor/contents.css' %}">
+{% endblock %}

@@ -1,0 +1,37 @@
+<!-- cart.html -->
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Корзина</h1>
+    {% if cart_items %}
+    {% for item in cart_items %}
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <h5>{{ item.product.name }}</h5>
+        </div>
+        <div class="col-md-2">
+            <p>{{ item.product.price }} руб.</p>
+        </div>
+        <div class="col-md-2">
+            <p>Количество: {{ item.quantity }}</p>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger">Удалить</a>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-md-8">
+            <h4>Общая стоимость: {{ total_price }} руб.</h4>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'checkout' %}" class="btn btn-success">Оформить заказ</a>
+        </div>
+    </div>
+    {% else %}
+    <p>Ваша корзина пуста.</p>
+    {% endif %}
+</div>
+{% endblock %}

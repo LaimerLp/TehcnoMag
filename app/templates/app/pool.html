@@ -1,0 +1,50 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form action="." method="post" class="form-horizontal">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-default" id="submit-btn">Отправить</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Изменение цвета надписи на кнопке отправки формы при наведении
+        var submitBtn = document.getElementById('submit-btn');
+        submitBtn.addEventListener('mouseover', function() {
+            this.style.color = 'grey'; // Измените на нужный цвет
+        });
+        submitBtn.addEventListener('mouseout', function() {
+            this.style.color = ''; // Восстанавливаем исходный цвет
+        });
+
+        // Изменение цвета фона полей ввода при их выборе
+        var inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(function(input) {
+            input.addEventListener('focus', function() {
+                this.style.backgroundColor = 'lightyellow'; // Измените на нужный цвет
+            });
+            input.addEventListener('blur', function() {
+                this.style.backgroundColor = ''; // Восстанавливаем исходный цвет
+            });
+        });
+    });
+</script>
+
+{% endblock %}

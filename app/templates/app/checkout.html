@@ -1,0 +1,44 @@
+<!-- checkout.html -->
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Оформление заказа</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Оформить заказ</button>
+    </form>
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <h4>Ваша корзина</h4>
+            {% if cart_items %}
+            {% for item in cart_items %}
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <h5>{{ item.product.name }}</h5>
+                </div>
+                <div class="col-md-2">
+                    <p>{{ item.product.price }} руб.</p>
+                </div>
+                <div class="col-md-2">
+                    <p>Количество: {{ item.quantity }}</p>
+                </div>
+                <div class="col-md-2">
+                    <p>Итого: {{ item.product.price|floatformat:"2" }} руб.</p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-md-8">
+                    <h4>Общая стоимость: {{ total_price }} руб.</h4>
+                </div>
+            </div>
+            {% else %}
+            <p>Ваша корзина пуста.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

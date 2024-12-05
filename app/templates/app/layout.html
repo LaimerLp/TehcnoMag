@@ -1,0 +1,91 @@
+<!-- layout.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - TechnoMag</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+    {% block styles %}{% endblock %}
+
+    <!-- Добавление favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'app/content/favicon.ico' %}">
+
+    <!-- Добавление логотипа сайта -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'app/content/logo.png' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'app/content/logo.png' %}" alt="Logo" style="height: 40px;">
+                <span class="navbar-text">TechnoMag</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'links' %}">Полезные ресурсы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog_list' %}">Блог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pool' %}">Обратная связь</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'video' %}">Видео</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'products' %}">Товары</a>
+                    </li>
+                    {% if user.is_authenticated and user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_blog_post' %}">Добавить статью</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cart' %}">Корзина</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    {% if user.is_authenticated %}
+                    <span class="navbar-text mr-2">Привет, {{ user.username }}!</span>
+                    <form id="logoutForm" action="{% url 'logout' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-danger">Выйти</button>
+                    </form>
+                    {% else %}
+                    <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
+                    <a class="nav-link" href="{% url 'login' %}">Вход</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        {% block content %}{% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; {{ year }} - TechnoMag</p>
+        </footer>
+    </div>
+
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

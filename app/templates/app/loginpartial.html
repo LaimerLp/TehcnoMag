@@ -1,0 +1,25 @@
+<!-- loginpartial.html -->
+{% if user.is_authenticated %}
+<form id="logoutForm" action="{% url 'logout' %}" method="post" class="navbar-right">
+    {% csrf_token %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="margin-right: 20px;">
+            <!-- Увеличенное пространство -->
+            <span class="navbar-text" style="font-size: 14px;">Привет, {{ user.username }}!</span>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link btn btn-outline-danger">Выйти</a>
+        </li>
+    </ul>
+</form>
+{% else %}
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item" style="margin-right: 20px;">
+        <!-- Увеличенное пространство -->
+        <a href="{% url 'register' %}" class="nav-link btn btn-outline-primary">Регистрация</a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url 'login' %}" class="nav-link btn btn-outline-primary">Вход</a>
+    </li>
+</ul>
+{% endif %}

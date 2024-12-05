@@ -1,0 +1,24 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+
+{% load static %}
+
+<div class="resource-links">
+    <a href="https://www.dns-shop.ru/?ysclid=m3d71lr0go603569674" target="_blank">
+        <img src="{% static 'app/content/dns.jpg' %}" alt="Logo 1" />
+    </a>
+    <a href="https://www.citilink.ru/?ysclid=m3d71jpus4590696254" target="_blank">
+        <img src="{% static 'app/content/citilink.png' %}" alt="Logo 2" />
+    </a>
+    <a href="https://happypc.ru/?ysclid=m3d71nmezd113963622" target="_blank">
+        <img src="{% static 'app/content/happypc.jpg' %}" alt="Logo 3" />
+    </a>
+    <!-- Добавьте больше ссылок по мере необходимости -->
+</div>
+
+<p>На этой странице вы найдете полезные ресурсы, связанные с комплектующими для компьютеров и другой электроники. Мы стремимся предоставить вам наиболее актуальную информацию и лучшие предложения на рынке.</p>
+
+{% endblock %}

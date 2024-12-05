@@ -1,0 +1,97 @@
+<!-- index.html -->
+{% extends "app/layout.html" %}
+{% load static %}  <!-- Загрузка библиотеки static -->
+{% block content %}
+<div class="jumbotron">
+    <h1>TechnoMag</h1>
+    <p class="lead">TechnoMag — это интернет-магазин, специализирующийся на продаже комплектующих для компьютеров и другой электроники. Мы предлагаем широкий ассортимент продукции от ведущих производителей, чтобы удовлетворить потребности наших клиентов.</p>
+    <p><a href="/advantages/" class="btn btn-primary btn-large">Узнать больше &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Собрать ПК или купить готовую сборку?</h2>
+        <p>
+            Сборка нового компьютера с нуля — дело довольно сложное и времязатратное. Подбирать конфигурацию, подыскивать процессор и видеокарту под свой бюджет, подключать и собирать…
+
+            Сразу возникает соблазн: «Может быть, я лучше готовый куплю?». Но в этом простом решении есть много подводных камней.
+        </p>
+        <p><a class="btn btn-default" href="https://geektarget.ru/chto-luchshe-sobrat-pk-ili-kupit-gotovyj/">Узнать больше &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Amd или Intel?</h2>
+        <p>Мы не стали ввязываться в холивары и просто разобрали сильные и слабые стороны процессоров Intel и AMD. Делайте выбор с умом.</p>
+        <p><a class="btn btn-default" href="https://dzen.ru/a/YcB2j0gzQ3kYTsXm?ysclid=m477i9eod4675704656">Узнать больше &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Как выбрать видеокарту?</h2>
+        <p>Игровой потенциал компьютера определяется в первую очередь установленной в него видеокартой. К ее выбору нужно подходить не менее ответственно, чем к покупке центрального процессора или материнской платы. </p>
+        <p><a class="btn btn-default" href="https://club.dns-shop.ru/blog/t-99-videokartyi/14990-kak-vyibrat-videokartu/?ysclid=m477jnoisc802818318&utm_referrer=https%3A%2F%2Fyandex.ru%2F">Узнать больше &raquo;</a></p>
+    </div>
+</div>
+
+<!-- Добавление слайдера карусели -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2750">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="{% static 'app/content/CPU.jfif' %}" alt="Первый слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Как выбрать процессор?
+                    <a class="btn btn-default" href="https://journal.tinkoff.ru/guide/cpu-choosing/">
+                        Читать далее
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/GPU.jpg' %}" alt="Второй слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Встроенная видеокарта или дискретная: что лучше выбрать и почему?
+                    <a class="btn btn-default" href="https://www.nix.ru/computer_hardware_news/hardware_news_viewer.html?id=199681">
+                        Читать далее
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/MTHB.jpeg' %}" alt="Третий слайд" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Как выбрать материнскую плату?
+                    <a class="btn btn-default" href="https://club.dns-shop.ru/blog/t-102-materinskie-platyi/15175-kak-vyibrat-materinskuu-platu/?ysclid=m47drqdv50920832006">
+                        Читать далее
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<!-- Инициализация карусели с помощью JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(window).on('load', function () {
+        $('#myCarousel').carousel({
+            interval: 2750 // Время в миллисекундах, через которое будет происходить перелистывание
+        });
+    });
+</script>
+
+{% endblock %}
