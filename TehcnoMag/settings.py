@@ -15,7 +15,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '.onrender.com',
     'tehcnomag-2.onrender.com',
-    ]
+]
 
 INSTALLED_APPS = [
     'app',
@@ -75,7 +75,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },  
+    },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
@@ -104,3 +104,8 @@ STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Добавьте ваш домен в список доверенных источников
+CSRF_TRUSTED_ORIGINS = [
+    'https://tehcnomag-2.onrender.com',
+]
