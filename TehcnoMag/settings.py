@@ -9,7 +9,11 @@ SECRET_KEY = '77a6e43e-ea96-42f3-a7bd-498c22c3b3ee'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    
+    
+    "tehcnomag-2.onrender.com"
+    ]
 
 INSTALLED_APPS = [
     'app',
