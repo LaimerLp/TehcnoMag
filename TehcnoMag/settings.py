@@ -10,9 +10,11 @@ SECRET_KEY = '77a6e43e-ea96-42f3-a7bd-498c22c3b3ee'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    
-    
-    "tehcnomag-2.onrender.com"
+    'your_domain.com',
+    'localhost',
+    '127.0.0.1',
+    '.onrender.com'
+    'tehcnomag-2.onrender.com'
     ]
 
 INSTALLED_APPS = [
