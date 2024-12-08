@@ -2,8 +2,9 @@
 import os
 import posixpath
 from traceback import TracebackException
+from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = '77a6e43e-ea96-42f3-a7bd-498c22c3b3ee'
 
@@ -13,9 +14,9 @@ ALLOWED_HOSTS = [
     'your_domain.com',
     'localhost',
     '127.0.0.1',
-    '.onrender.com'
-    'tehcnomag-2.onrender.com'
-    ]
+    '.onrender.com',
+    'tehcnomag-2.onrender.com',  # Добавьте этот хост
+]
 
 INSTALLED_APPS = [
     'app',
